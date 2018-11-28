@@ -22,6 +22,7 @@ libraryDependencies ++= Seq(
   // "net.hydromatic" % "eigenbase-properties" % "1.1.5",
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "org.apache.spark" %% "spark-hive-thriftserver" % sparkVersion,
-  "net.sf.jt400" % "jt400" % "9.5"
+  "net.sf.jt400" % "jt400" % "9.5",
+  "mysql" % "mysql-connector-java" % "5.1.6"
 
 )

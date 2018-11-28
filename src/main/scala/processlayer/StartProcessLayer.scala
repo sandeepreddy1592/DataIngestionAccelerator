@@ -9,9 +9,6 @@ object StartProcessLayer extends SparkJob("Data Ingestion"){
 
     PropertiesConfig.parseArgs(args)
 
-    import sparkSession.implicits._
-
-
   }
 
 
