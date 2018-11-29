@@ -14,10 +14,10 @@ object SinkFactory {
 
     case "SinkName1" if ("SinkName1".equalsIgnoreCase(SinkName)) =>
       logger.info("Starting SourceName1")
-      new SourceName1(SinkName: String)
+      new SinkName1(SinkName: String)
     case "SinkName2" if ("SinkName2".equalsIgnoreCase(SinkName)) =>
       logger.info("Starting SourceName12")
-      new SourceName2(SinkName: String)
+      new SinkName2(SinkName: String)
 
   }
 }

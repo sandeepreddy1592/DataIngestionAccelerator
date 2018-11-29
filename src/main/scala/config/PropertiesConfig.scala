@@ -4,8 +4,6 @@ import java.io.File
 
 import org.apache.log4j.Logger
 
-import util.Properties
-
 object PropertiesConfig {
 
   val logger = Logger.getLogger(getClass.getName)

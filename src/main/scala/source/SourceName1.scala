@@ -4,10 +4,12 @@ import api.SourceProcessor
 import org.apache.log4j.{Level, Logger}
 import factory.SourceFactory
 import java.sql.DriverManager
-import processlayer.SparkJob
+
+import org.apache.spark.sql.DataFrame
+import processlayer.StartProcessLayer._
 
 
-case class SourceName1(SourceName: String) extends SourceProcessor with SparkJob {
+case class SourceName1(SourceName: String) extends SourceProcessor {
 
   val logger = Logger.getLogger(getClass.getName)
   Logger.getLogger("org").setLevel(Level.WARN)
@@ -32,10 +34,10 @@ case class SourceName1(SourceName: String) extends SourceProcessor with SparkJob
     connectionProperties.put("user", s"${jdbcUsername}")
     connectionProperties.put("password", s"${jdbcPassword}")
 
-    val df = sparkSession.read
+    val df : DataFrame = sparkSession.read
       .format("jdbc")
       .option("url", jdbcUrl)
-      .option("dbtable", "classicmodels.customer")
+      .option("dbtable", "classicmodels.customers")
       .option("user", jdbcUsername)
       .option("password", jdbcPassword)
       .load()
