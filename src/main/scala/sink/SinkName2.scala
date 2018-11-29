@@ -9,7 +9,7 @@ case class SinkName2(SinkName: String) extends SinkProcessor {
   val logger = Logger.getLogger(getClass.getName)
   Logger.getLogger("org").setLevel(Level.WARN)
 
-  override def process(SinkName: String): Unit {
+  override def process(SinkName: String) {
 
     val url = "jdbc"
 
