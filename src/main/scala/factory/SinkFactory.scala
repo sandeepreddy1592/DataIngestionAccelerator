@@ -3,6 +3,7 @@ package factory
 import api.{SinkProcessor}
 import org.apache.log4j.{Level, Logger}
 import source._
+import util.Constants._
 
 object SinkFactory {
 
@@ -12,12 +13,12 @@ object SinkFactory {
 
   def sinkTypeProcessor(SinkName: String): SinkProcessor = SinkName match {
 
-    case "SinkName1" if ("SinkName1".equalsIgnoreCase(SinkName)) =>
-      logger.info("Starting SourceName1")
-      new SinkName1(SinkName: String)
+    case hive if (hive.equalsIgnoreCase(SinkName)) =>
+      println("Starting DBHive")
+      new DBHive
     case "SinkName2" if ("SinkName2".equalsIgnoreCase(SinkName)) =>
       logger.info("Starting SourceName12")
-      new SinkName2(SinkName: String)
+      new SinkName2
 
   }
 }

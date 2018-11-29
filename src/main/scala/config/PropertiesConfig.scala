@@ -1,21 +1,33 @@
 package config
 
 import java.io.File
-
 import org.apache.log4j.Logger
+import java.util.Properties
+import java.io.FileInputStream
+import java.io.IOException
+import java.io.InputStream
+import util.Constants._
 
 object PropertiesConfig {
 
   val logger = Logger.getLogger(getClass.getName)
 
-  def parseArgs(args: Array[String]) = {
+  val prop : Properties = new Properties();
+  var input: InputStream  = null;
 
-    if(args.size == 0) {
+  def parseArgs(Type: String) = {
+
+    input = new FileInputStream(path)
+    prop.load(input);
+
+    //TO DO : Properties Validation
+
+    val Type = prop.getProperty(Type)
+
+    if(Type.size == 0) {
       defaultSettiing
-    } else {
-      loadConfig()
     }
-
+    Type
   }
 
   def loadConfig() = {

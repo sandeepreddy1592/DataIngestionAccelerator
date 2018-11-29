@@ -23,6 +23,12 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "org.apache.spark" %% "spark-hive-thriftserver" % sparkVersion,
   "net.sf.jt400" % "jt400" % "9.5",
-  "mysql" % "mysql-connector-java" % "5.1.6"
+  "mysql" % "mysql-connector-java" % "5.1.45"
 
 )
+
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs@_*) => MergeStrategy.discard
+  case _ => MergeStrategy.first
+}

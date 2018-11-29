@@ -3,6 +3,7 @@ package factory
 import org.apache.log4j.{Level, Logger}
 import api.SourceProcessor
 import source._
+import util.Constants._
 
 object SourceFactory {
 
@@ -12,12 +13,17 @@ object SourceFactory {
 
   def sourceTypeProcessor(SourceName: String): SourceProcessor = SourceName match {
 
-    case "SourceName1" if ("SourceName".equalsIgnoreCase(SourceName)) =>
-      logger.info("Starting SourceName1")
-      new SourceName1(SourceName: String)
+    case mysql if (mysql.equalsIgnoreCase(SourceName)) =>
+      logger.info("Starting mysql")
+      println("Starting mysql")
+      new DBMySql
     case "SourceName12" if ("SourceName1".equalsIgnoreCase(SourceName)) =>
       logger.info("Starting SourceName12")
-      new SourceName2(SourceName: String)
+      new SourceName2
+    case _ =>
+      println(SourceName)
+      println("Starting default case")
+      new SourceName2
 
   }
 }
