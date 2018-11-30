@@ -11,7 +11,7 @@ class SourceName2 extends SourceProcessor {
   val logger = Logger.getLogger(getClass.getName)
   Logger.getLogger("org").setLevel(Level.WARN)
 
-  override def process(jdbcHostname:String,jdbcPort:String, jdbcDatabase:String, jdbcUsername:String, jdbcPassword:String, TableName:String): DataFrame = {
+  override def process(Source : String): DataFrame = {
 
     val url = "jdbc"
 

@@ -15,16 +15,12 @@ object DataWriter {
   val logger = Logger.getLogger(getClass.getName)
 
   val Sink = prop.getProperty("Sink")
-  val SinkDBName = prop.getProperty("SinkDBName")
-  val SinkTableName = prop.getProperty("SinkTableName")
-  val fileFormat = prop.getProperty("FileFormat")
-
 
   def RouteTargetDB(Sink : String, source_df: DataFrame) = {
 
     val sinkprocessor: SinkProcessor = SinkFactory.sinkTypeProcessor(Sink)
 
-    sinkprocessor.process(source_df : DataFrame, fileFormat: String, SinkDBName : String, SinkTableName : String)
+    sinkprocessor.process(source_df : DataFrame)
 
   }
 

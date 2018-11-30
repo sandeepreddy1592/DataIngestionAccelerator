@@ -23,18 +23,11 @@ object DataReader {
 
     val Source = prop.getProperty("Source")
 
-    val jdbcHostname = prop.getProperty("HostName")
-    val jdbcPort = prop.getProperty("PortNum")
-    val jdbcDatabase = prop.getProperty("Database")
-    val jdbcUsername = prop.getProperty("UserName")
-    val jdbcPassword = prop.getProperty("Password")
-    val TableName = prop.getProperty("TableName")
-
     println("Datareader " + Source)
 
     val sourceprocessor: SourceProcessor = SourceFactory.sourceTypeProcessor(Source)
 
-    val source_df: DataFrame = sourceprocessor.process(jdbcHostname,jdbcPort, jdbcDatabase, jdbcUsername, jdbcPassword, TableName)
+    val source_df: DataFrame = sourceprocessor.process(Source)
 
     source_df
   }

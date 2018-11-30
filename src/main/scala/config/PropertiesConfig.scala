@@ -15,19 +15,19 @@ object PropertiesConfig {
   val prop : Properties = new Properties();
   var input: InputStream  = null;
 
-  def parseArgs(Type: String) = {
+  def parseArgs(argVal: String) = {
 
     input = new FileInputStream(path)
     prop.load(input);
 
     //TO DO : Properties Validation
 
-    val Type = prop.getProperty(Type)
+    val ExecutionType = prop.getProperty(argVal)
 
-    if(Type.size == 0) {
+    if(ExecutionType.size == 0) {
       defaultSettiing
     }
-    Type
+    ExecutionType
   }
 
   def loadConfig() = {
